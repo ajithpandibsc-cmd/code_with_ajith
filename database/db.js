@@ -183,7 +183,7 @@ const initialProducts = [
     category: "Grains & Oils",
     stock: 60,
     unit: "liter",
-    image: "https://images.unsplash.com/photo-1624454001525-41489111306f?auto=format&fit=crop&w=600&q=80"
+    image:"https://www.healthbenefitstimes.com/9/gallery/coconut-oil/Coconut-oil-10.jpg"
   },
   {
     id: "p7",
@@ -193,7 +193,7 @@ const initialProducts = [
     category: "Vegetables",
     stock: 200,
     unit: "kg",
-    image: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=600&q=80"
+    image: "https://imgcdn.stablediffusionweb.com/2024/3/22/33531414-75d9-4ed1-b003-be61ad61b044.jpg"
   },
   {
     id: "p8",
@@ -243,7 +243,7 @@ const initialProducts = [
     category: "Fruits",
     stock: 45,
     unit: "pack",
-    image: "https://images.unsplash.com/photo-1537084642907-629340c7e5a4?auto=format&fit=crop&w=600&q=80"
+    image:"https://cdn.shopify.com/s/files/1/0646/1305/6767/products/Green-Seedless-Table-Grape-3.jpg?v=1684510115&width=990"
   },
   {
     id: "p13",

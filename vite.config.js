@@ -8,17 +8,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default defineConfig(() => {
-  const isFrontendCwd = process.cwd().endsWith('frontend');
-  const rootDir = isFrontendCwd ? '.' : 'frontend';
-  const outDir = isFrontendCwd ? 'dist' : '../dist';
-  const aliasPath = isFrontendCwd ? '.' : 'frontend';
+  const isInsideFrontend = __dirname.endsWith('frontend') || path.basename(__dirname) === 'frontend';
+  
+  const rootDir = isInsideFrontend ? __dirname : path.resolve(__dirname, 'frontend');
+  const outDir = isInsideFrontend ? path.resolve(__dirname, '../dist') : path.resolve(__dirname, 'dist');
+  const aliasPath = isInsideFrontend ? __dirname : path.resolve(__dirname, 'frontend');
 
   return {
     root: rootDir,
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, aliasPath),
+        '@': aliasPath,
       },
     },
     build: {

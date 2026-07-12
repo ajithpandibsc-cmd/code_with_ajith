@@ -1,0 +1,9 @@
+[
+  {
+    "id": "u1",
+    "username": "Admin Seller",
+    "email": "admin@market.com",
+    "password": "$2a$10$UbyP8hF.bA69k.v7S/rB5eeT1P4G8H.7eY1f5j.eZis3w6P.N7mE.",
+    "role": "admin"
+  }
+]

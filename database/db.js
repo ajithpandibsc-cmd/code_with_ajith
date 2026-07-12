@@ -294,8 +294,218 @@ const initialProducts = [
     stock: 55,
     unit: "kg",
     image: "https://images.unsplash.com/photo-1541344999736-83eca272f6fc?auto=format&fit=crop&w=600&q=80"
+  },
+   {
+    id: "p18",
+    name: "Fresh Green Broccoli",
+    description: "Crisp, nutrient-dense organic broccoli crowns, rich in vitamins C and K.",
+    price: 95,
+    category: "Vegetables",
+    stock: 40,
+    unit: "kg",
+    image: "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "p19",
+    name: "Organic Sweet Carrots",
+    description: "Sweet and crunchy farm-fresh orange carrots, perfect for salads, juices, or cooking.",
+    price: 50,
+    category: "Vegetables",
+    stock: 120,
+    unit: "kg",
+    image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "p20",
+    name: "Bell Pepper Trio",
+    description: "A colorful pack of red, yellow, and green bell peppers, fresh and crisp.",
+    price: 120,
+    category: "Vegetables",
+    stock: 60,
+    unit: "pack",
+    image: "https://images.unsplash.com/photo-1566393028639-d108a42c46a7?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "p21",
+    name: "Fresh Organic Garlic",
+    description: "Highly aromatic organic garlic bulbs with a strong, rich flavor profile.",
+    price: 150,
+    category: "Vegetables",
+    stock: 80,
+    unit: "kg",
+    image: "https://images.unsplash.com/photo-1592537906702-89fa082ecf72?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "p22",
+    name: "Zesty Green Kiwi Fruits",
+    description: "Tangy-sweet, nutrient-rich premium green kiwi fruit imported from New Zealand.",
+    price: 160,
+    category: "Fruits",
+    stock: 50,
+    unit: "pack",
+    image: "https://images.unsplash.com/photo-1585052201332-b8c0ce30972f?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "p23",
+    name: "Premium Hass Avocados",
+    description: "Creamy, buttery, and perfectly ripe premium Hass avocados, rich in healthy fats.",
+    price: 290,
+    category: "Fruits",
+    stock: 30,
+    unit: "piece",
+    image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "p24",
+    name: "Fresh Sweet Papaya",
+    description: "Sweet, vitamin-rich orange papaya, selected for peak ripeness and taste.",
+    price: 75,
+    category: "Fruits",
+    stock: 45,
+    unit: "piece",
+    image: "https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "p25",
+    name: "Black Pepper Corns",
+    description: "Premium whole black peppercorns from South Indian hills, strong and spicy.",
+    price: 110,
+    category: "Spices",
+    stock: 65,
+    unit: "pack",
+    image: "https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "p26",
+    name: "Organic Cinnamon Sticks",
+    description: "Sweet, highly aromatic organic Ceylon cinnamon sticks for baking and brewing.",
+    price: 95,
+    category: "Spices",
+    stock: 50,
+    unit: "pack",
+    image: "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "p27",
+    name: "Kashmiri Red Chili Powder",
+    description: "Vibrant, mildly hot, and premium quality ground Kashmiri red chili.",
+    price: 85,
+    category: "Spices",
+    stock: 90,
+    unit: "pack",
+    image: "https://images.unsplash.com/photo-1588252303782-cb80119cb665?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "p28",
+    name: "Organic Whole Milk",
+    description: "Fresh, pasteurized organic grass-fed whole cow's milk with full cream.",
+    price: 75,
+    category: "Dairy",
+    stock: 100,
+    unit: "liter",
+    image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "p29",
+    name: "Fresh Dairy Paneer",
+    description: "Soft, delicious, freshly prepared premium dairy paneer from organic milk.",
+    price: 120,
+    category: "Dairy",
+    stock: 40,
+    unit: "pack",
+    image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "p30",
+    name: "Creamy Greek Yogurt",
+    description: "Creamy, thick, high-protein plain Greek yogurt, natural and unsweetened.",
+    price: 90,
+    category: "Dairy",
+    stock: 55,
+    unit: "pack",
+    image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "p31",
+    name: "Premium Basmati Rice",
+    description: "Extra long-grain aromatic basmati rice, perfectly aged for fluffy cooking.",
+    price: 140,
+    category: "Grains & Oils",
+    stock: 150,
+    unit: "kg",
+    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "p32",
+    name: "Cold-Pressed Mustard Oil",
+    description: "Traditionally extracted pungent mustard oil, highly rich in natural allyls.",
+    price: 195,
+    category: "Grains & Oils",
+    stock: 75,
+    unit: "liter",
+    image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "p33",
+    name: "Organic White Quinoa",
+    description: "Premium white organic quinoa, gluten-free, rich in protein and dietary fibers.",
+    price: 220,
+    category: "Grains & Oils",
+    stock: 50,
+    unit: "pack",
+    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80"
   }
 ];
+
+// Seed function for MongoDB database if empty
+async function seedMongoData() {
+  try {
+    // Check and seed users
+    const userCount = await MongoUser.countDocuments();
+    if (userCount === 0) {
+      console.log('MongoDB: No users found. Seeding default admin user...');
+      await MongoUser.create({
+        username: "Admin Seller",
+        email: "admin@market.com",
+        password: "$2a$10$UbyP8hF.bA69k.v7S/rB5eeT1P4G8H.7eY1f5j.eZis3w6P.N7mE.", // bcrypt hash of "admin123"
+        role: "admin"
+      });
+      console.log('MongoDB: Admin user seeded successfully.');
+    }
+
+    // Check and seed products
+    const productCount = await MongoProduct.countDocuments();
+    if (productCount === 0) {
+      console.log('MongoDB: No products found. Seeding initial product catalog...');
+      const productsToInsert = initialProducts.map(p => ({
+        name: p.name,
+        description: p.description,
+        price: p.price,
+        category: p.category,
+        stock: p.stock,
+        unit: p.unit,
+        image: p.image
+      }));
+      await MongoProduct.insertMany(productsToInsert);
+      console.log('MongoDB: Product catalog seeded successfully.');
+    }
+  } catch (err) {
+    console.error('MongoDB: Error seeding database:', err.message);
+  }
+}
+
+// Load local files if they don't exist
+readLocalData('users.json', [
+  // Admin default user (password is "admin123" encrypted or simple, we'll hash it on use or verify directly)
+  {
+    id: "u1",
+    username: "Admin Seller",
+    email: "admin@market.com",
+    password: "$2a$10$UbyP8hF.bA69k.v7S/rB5eeT1P4G8H.7eY1f5j.eZis3w6P.N7mE.", // bcrypt hash of "admin123"
+    role: "admin"
+  }
+
+]);
 
 // Seed function for MongoDB database if empty
 async function seedMongoData() {

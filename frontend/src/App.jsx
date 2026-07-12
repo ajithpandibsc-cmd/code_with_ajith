@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingCart, LogOut, User, LayoutDashboard, Package, RefreshCw, ShoppingBag, Store, ArrowRight, ShieldAlert, Check } from 'lucide-react';
-import ProductCatalog from './components/ProductCatalog.jsx';
+import ProductCatalog from './components/Productcatalog.jsx';
 import Cart from './components/Cart.jsx';
 import Checkout from './components/Checkout.jsx';
 import Login from './components/Login.jsx';

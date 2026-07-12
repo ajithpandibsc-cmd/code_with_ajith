@@ -1,7 +1,6 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { createServer as createViteServer } from 'vite';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
@@ -308,8 +307,14 @@ app.put('/api/orders/:id', requireAdmin, async (req, res) => {
 // VITE OR STATIC SERVING INTEGRATION
 // -------------------------------------------------------------
 async function startServer() {
+  if (process.env.VERCEL) {
+    console.log('Running as a serverless function on Vercel.');
+    return;
+  }
+
   if (process.env.NODE_ENV !== "production") {
-    const vite = await createViteServer({
+    const { createServer } = await import('vite');
+    const vite = await createServer({
       server: { middlewareMode: true },
       appType: "spa",
     });
@@ -328,3 +333,5 @@ async function startServer() {
 }
 
 startServer();
+
+export default app;

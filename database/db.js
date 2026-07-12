@@ -19,7 +19,9 @@ let isConnectedToMongo = false;
 // Initialize MongoDB connection if URI is available
 if (MONGODB_URI) {
   try {
-    mongoose.connect(MONGODB_URI)
+    mongoose.connect(MONGODB_URI, {
+      serverSelectionTimeoutMS: 5000, // 5 seconds timeout to prevent hanging on serverless environments
+    })
       .then(async () => {
         console.log('Successfully connected to MongoDB.');
         isConnectedToMongo = true;
@@ -94,7 +96,11 @@ const getLocalFile = (filename) => path.join(DATA_DIR, filename);
 const readLocalData = (filename, defaultData = []) => {
   const filePath = getLocalFile(filename);
   if (!fs.existsSync(filePath)) {
-    fs.writeFileSync(filePath, JSON.stringify(defaultData, null, 2));
+    try {
+      fs.writeFileSync(filePath, JSON.stringify(defaultData, null, 2));
+    } catch (err) {
+      console.error(`Error writing default data for ${filename}:`, err.message);
+    }
     return defaultData;
   }
   try {

@@ -2,7 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import mongoose from 'mongoose';
 
-const DATA_DIR = path.join(process.cwd(), 'data');
+// On Vercel serverless environment, only /tmp is writable
+const DATA_DIR = process.env.VERCEL 
+  ? path.join('/tmp', 'data') 
+  : path.join(process.cwd(), 'data');
 
 // Ensure data directory exists for local fallback
 if (!fs.existsSync(DATA_DIR)) {
@@ -15,16 +18,23 @@ let isConnectedToMongo = false;
 
 // Initialize MongoDB connection if URI is available
 if (MONGODB_URI) {
-  mongoose.connect(MONGODB_URI)
-    .then(() => {
-      console.log('Successfully connected to MongoDB.');
-      isConnectedToMongo = true;
-    })
-    .catch((err) => {
-      console.error('Error connecting to MongoDB:', err.message);
-      console.log('Falling back to Local JSON Database storage.');
-      isConnectedToMongo = false;
-    });
+  try {
+    mongoose.connect(MONGODB_URI)
+      .then(async () => {
+        console.log('Successfully connected to MongoDB.');
+        isConnectedToMongo = true;
+        // Seed MongoDB database with default products and admin user if empty
+        await seedMongoData();
+      })
+      .catch((err) => {
+        console.error('Error connecting to MongoDB:', err.message);
+        console.log('Falling back to Local JSON Database storage.');
+        isConnectedToMongo = false;
+      });
+  } catch (err) {
+    console.error('Synchronous error during mongoose connection initialization:', err.message);
+    isConnectedToMongo = false;
+  }
 } else {
   console.log('MONGODB_URI not provided. Running in Local JSON Database storage mode.');
 }
@@ -280,6 +290,43 @@ const initialProducts = [
     image: "https://images.unsplash.com/photo-1541344999736-83eca272f6fc?auto=format&fit=crop&w=600&q=80"
   }
 ];
+
+// Seed function for MongoDB database if empty
+async function seedMongoData() {
+  try {
+    // Check and seed users
+    const userCount = await MongoUser.countDocuments();
+    if (userCount === 0) {
+      console.log('MongoDB: No users found. Seeding default admin user...');
+      await MongoUser.create({
+        username: "Admin Seller",
+        email: "admin@market.com",
+        password: "$2a$10$UbyP8hF.bA69k.v7S/rB5eeT1P4G8H.7eY1f5j.eZis3w6P.N7mE.", // bcrypt hash of "admin123"
+        role: "admin"
+      });
+      console.log('MongoDB: Admin user seeded successfully.');
+    }
+
+    // Check and seed products
+    const productCount = await MongoProduct.countDocuments();
+    if (productCount === 0) {
+      console.log('MongoDB: No products found. Seeding initial product catalog...');
+      const productsToInsert = initialProducts.map(p => ({
+        name: p.name,
+        description: p.description,
+        price: p.price,
+        category: p.category,
+        stock: p.stock,
+        unit: p.unit,
+        image: p.image
+      }));
+      await MongoProduct.insertMany(productsToInsert);
+      console.log('MongoDB: Product catalog seeded successfully.');
+    }
+  } catch (err) {
+    console.error('MongoDB: Error seeding database:', err.message);
+  }
+}
 
 // Load local files if they don't exist
 readLocalData('users.json', [

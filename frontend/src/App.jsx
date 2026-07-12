@@ -67,7 +67,7 @@ export default function App() {
     try {
       const response = await fetch('/api/products');
       if (response.ok) {
-        const data = await response.ok ? await response.json() : [];
+        const data = await response.json();
         setProducts(data);
       }
     } catch (err) {
